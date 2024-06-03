@@ -1,0 +1,17 @@
+name: Dastardly Scan
+
+on: [push]
+
+jobs:
+  dastardly-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Dastardly Action Step
+      uses: PortSwigger/dastardly-github-action@main
+      with:
+        target-url: 'http://127.0.0.1:5002/?username=Airman%20Allie&lcode=ar'
+        output-filename: 'dastardly-report.xml'
